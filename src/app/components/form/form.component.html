@@ -1,0 +1,45 @@
+<div class="liber-form-container">
+  <mat-card class="liber-form-card">
+    <mat-card-header class="liber-form-card-header">
+      <mat-card-title class="liber-form-card-title">{{this.title}}</mat-card-title>
+      <mat-card-subtitle class="liber-form-card-subtitle">{{this.subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="liber-form" [formGroup]="this.formGroup" (ngSubmit)="onSubmit()">
+        <input *ngIf="!this.isCreate" formControlName="id" type="hidden">
+        <mat-form-field *ngFor="let inputDescription of this.inputDescriptions" appearance="outline">
+          <mat-label>{{inputDescription.label}}</mat-label>
+          <input matInput [formControlName]="inputDescription.name" [readonly]="this.isRead || this.isDelete">
+          <mat-icon matSuffix>{{inputDescription.icon}}</mat-icon>
+        </mat-form-field>
+        <div class="liber-form-buttons">
+
+          <button *ngIf="this.isCreate" mat-raised-button class="liber-form-button liber-button-success" type="submit"
+            [disabled]="formGroup.invalid">
+            <mat-icon>create</mat-icon>Adicionar
+          </button>
+          <button *ngIf="this.isUpdate" mat-raised-button class="liber-form-button liber-button-primary" type="submit"
+            [disabled]="formGroup.invalid">
+            <mat-icon>edit</mat-icon>Atualizar
+          </button>
+          <button *ngIf="this.isDelete" mat-raised-button class="liber-form-button liber-button-danger" type="submit">
+            <mat-icon>delete</mat-icon>Remover
+          </button>
+
+          <a *ngIf="this.isCreate || this.isUpdate" mat-raised-button class="liber-form-button liber-button-danger"
+            routerLink="../list">
+            <mat-icon>close</mat-icon>Cancelar
+          </a>
+          <a *ngIf="this.isDelete" mat-raised-button class="liber-form-button liber-button-primary"
+            routerLink="../list">
+            <mat-icon>close</mat-icon>Cancelar
+          </a>
+          <a *ngIf="this.isRead" mat-raised-button class="liber-form-button liber-button-primary" routerLink="../list">
+            <mat-icon>undo</mat-icon>Voltar
+          </a>
+
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,22 @@
+@import 'liber-colors';
+
+.liber-button {
+    color: white;
+    width: 100%;
+    font-size: 14px;
+
+    &-success {
+        @extend .liber-button;
+        background-color: $liber-color-action-success;
+    }
+
+    &-danger {
+        @extend .liber-button;
+        background-color: $liber-color-action-danger;
+    }
+
+    &-primary {
+        @extend .liber-button;
+        background-color: $liber-color-action-primary;
+    }
+}

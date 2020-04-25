@@ -1,0 +1,21 @@
+<div class="liber-navbar">
+  <div class="liber-navbar-brand">
+      <button mat-button routerLink="/">
+          <mat-icon>book</mat-icon><span style="font-size: 20px;">Liber</span>
+      </button>
+  </div>
+  <div class="liber-navbar-menu">
+      <button mat-button [matMenuTriggerFor]="user">Usuário</button>
+      <mat-menu #user="matMenu">
+          <button mat-menu-item routerLink="user/create">Adicionar</button>
+          <button mat-menu-item routerLink="user/list">Listar</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="book">Livro</button>
+      <mat-menu #book="matMenu">
+          <button mat-menu-item routerLink="book/create">Adicionar</button>
+          <button mat-menu-item routerLink="book/list">Listar</button>
+      </mat-menu>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

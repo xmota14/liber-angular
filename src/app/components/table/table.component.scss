@@ -1,0 +1,48 @@
+@import '../../styles/liber-colors';
+
+.liber-table-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 720px) {
+    .liber-table-content mat-card {
+        width: 700px;
+    }
+}
+
+@media (max-width: 519px) {
+    .liber-table-content mat-card {
+        width: calc(100% - 60px);
+    }
+}
+
+table {
+    width: 100%;
+}
+
+.mat-cell {
+    padding: 0 10px 10px 0;
+}
+
+mat-card-title, mat-card-subtitle {
+    text-align: center;
+}
+
+mat-card-header {
+    justify-content: center;
+}
+
+.liber-table-button-read {
+  color: $liber-color-action-success;
+}
+
+.liber-table-button-update {
+  color: $liber-color-action-primary;
+}
+
+.liber-table-button-delete {
+    color: $liber-color-action-danger;
+}
