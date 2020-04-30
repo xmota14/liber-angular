@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
-import { Book } from 'src/app/models/book';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService extends ApiService<Book> {
+export class BookService extends ApiService {
+
   protected getApiPath(): string {
-    return '/book';
+    return '/livros';
   }
 
 }

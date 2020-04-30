@@ -5,15 +5,30 @@
       </button>
   </div>
   <div class="liber-navbar-menu">
-      <button mat-button [matMenuTriggerFor]="user">Usuário</button>
+      <button mat-button [matMenuTriggerFor]="user">Usuários</button>
       <mat-menu #user="matMenu">
           <button mat-menu-item routerLink="user/create">Adicionar</button>
           <button mat-menu-item routerLink="user/list">Listar</button>
       </mat-menu>
-      <button mat-button [matMenuTriggerFor]="book">Livro</button>
+      <button mat-button [matMenuTriggerFor]="book">Livros</button>
       <mat-menu #book="matMenu">
           <button mat-menu-item routerLink="book/create">Adicionar</button>
           <button mat-menu-item routerLink="book/list">Listar</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="otherItems">Outros Itens</button>
+      <mat-menu #otherItems="matMenu">
+          <button mat-menu-item routerLink="other-items/create">Adicionar</button>
+          <button mat-menu-item routerLink="other-items/list">Listar</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="people">Pessoas</button>
+      <mat-menu #people="matMenu">
+          <button mat-menu-item routerLink="people/create">Adicionar</button>
+          <button mat-menu-item routerLink="people/list">Listar</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="loan">Empréstimos</button>
+      <mat-menu #loan="matMenu">
+          <button mat-menu-item routerLink="loan/create">Adicionar</button>
+          <button mat-menu-item routerLink="loan/list">Listar</button>
       </mat-menu>
   </div>
 </div>

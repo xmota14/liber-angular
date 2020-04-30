@@ -1,0 +1,25 @@
+<div class="liber-form-container">
+  <mat-card class="liber-form-card">
+    <mat-card-header class="liber-form-card-header">
+      <mat-card-title class="liber-form-card-title">Seja Bem Vindo ao Liber</mat-card-title>
+      <mat-card-subtitle class="liber-form-card-subtitle">Faça seu Login</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="liber-form" [formGroup]="this.formGroup" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="text">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput formControlName="password" type="password">
+          <mat-icon matSuffix>vpn_key</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button class="liber-button-primary" type="submit" [disabled]="formGroup.invalid">
+          <mat-icon>create</mat-icon>Adicionar
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

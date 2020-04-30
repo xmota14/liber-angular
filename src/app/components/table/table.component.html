@@ -14,13 +14,13 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
           <td mat-cell *matCellDef="let element">
-            <a class="liber-table-button-read" routerLink="../read/{{element.id}}">
+            <a class="liber-table-button-read" routerLink="../read/{{element[this.idFormControlName]}}">
               <mat-icon>list</mat-icon>
             </a>
-            <a class="liber-table-button-update" routerLink="../update/{{element.id}}">
+            <a class="liber-table-button-update" routerLink="../update/{{element[this.idFormControlName]}}">
               <mat-icon>edit</mat-icon>
             </a>
-            <a class="liber-table-button-delete" routerLink="../delete/{{element.id}}">
+            <a class="liber-table-button-delete" routerLink="../delete/{{element[this.idFormControlName]}}">
               <mat-icon>delete</mat-icon>
             </a>
           </td>

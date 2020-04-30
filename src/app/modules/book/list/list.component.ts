@@ -17,9 +17,9 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.tableColumnDescriptions = [
-      new TableColumnDescription('id', 'ID'),
       new TableColumnDescription('title', 'Título'),
-    ]
+      new TableColumnDescription('author', 'Author')
+    ];
   }
 
 }

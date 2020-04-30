@@ -12,8 +12,9 @@ export class TableComponent implements OnInit {
 
   @Input() public title: string;
   @Input() public subtitle: string;
-  @Input() public service: ApiService<any>;
+  @Input() public service: ApiService;
   @Input() public tableColumnDescriptions: TableColumnDescription[];
+  @Input() public idFormControlName: string;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -28,7 +29,9 @@ export class TableComponent implements OnInit {
     this.setDisplayedColumns();
 
     this.service.list().subscribe((response) => {
-      this.dataSource.data = response;
+      console.log(response);
+      // @ts-ignore
+      this.dataSource.data = response.data;
     });
   }
 

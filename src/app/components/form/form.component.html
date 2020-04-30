@@ -6,10 +6,17 @@
     </mat-card-header>
     <mat-card-content>
       <form class="liber-form" [formGroup]="this.formGroup" (ngSubmit)="onSubmit()">
-        <input *ngIf="!this.isCreate" formControlName="id" type="hidden">
+        <input *ngIf="!this.isCreate" [formControlName]="this.idFormControlName" type="hidden">
         <mat-form-field *ngFor="let inputDescription of this.inputDescriptions" appearance="outline">
           <mat-label>{{inputDescription.label}}</mat-label>
-          <input matInput [formControlName]="inputDescription.name" [readonly]="this.isRead || this.isDelete">
+          <input *ngIf="inputDescription.type === 'text'" matInput [formControlName]="inputDescription.name"
+            [readonly]="this.isRead || this.isDelete" type="text">
+          <input *ngIf="inputDescription.type === 'number'" matInput [formControlName]="inputDescription.name"
+            [readonly]="this.isRead || this.isDelete" type="number">
+          <input *ngIf="inputDescription.type === 'email'" matInput [formControlName]="inputDescription.name"
+            [readonly]="this.isRead || this.isDelete" type="email">
+            <input *ngIf="inputDescription.type === 'password'" matInput [formControlName]="inputDescription.name"
+            [readonly]="this.isRead || this.isDelete" type="password">
           <mat-icon matSuffix>{{inputDescription.icon}}</mat-icon>
         </mat-form-field>
         <div class="liber-form-buttons">
@@ -26,15 +33,19 @@
             <mat-icon>delete</mat-icon>Remover
           </button>
 
-          <a *ngIf="this.isCreate || this.isUpdate" mat-raised-button class="liber-form-button liber-button-danger"
-            routerLink="../list">
+          <a *ngIf="this.isCreate" mat-raised-button class="liber-form-button liber-button-danger"
+            routerLink="..">
+            <mat-icon>close</mat-icon>Cancelar
+          </a>
+          <a *ngIf="this.isUpdate" mat-raised-button class="liber-form-button liber-button-danger"
+            routerLink="../..">
             <mat-icon>close</mat-icon>Cancelar
           </a>
           <a *ngIf="this.isDelete" mat-raised-button class="liber-form-button liber-button-primary"
-            routerLink="../list">
+            routerLink="../..">
             <mat-icon>close</mat-icon>Cancelar
           </a>
-          <a *ngIf="this.isRead" mat-raised-button class="liber-form-button liber-button-primary" routerLink="../list">
+          <a *ngIf="this.isRead" mat-raised-button class="liber-form-button liber-button-primary" routerLink="../..">
             <mat-icon>undo</mat-icon>Voltar
           </a>
 

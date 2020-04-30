@@ -22,7 +22,8 @@ export class FormComponent implements OnInit {
   @Input() public mode: string;
   @Input() public formGroup: FormGroup;
   @Input() public inputDescriptions: InputDescription[];
-  @Input() public service: ApiService<any>;
+  @Input() public service: ApiService;
+  @Input() public idFormControlName: string;
 
   public isCreate: boolean;
   public isRead: boolean;
@@ -37,15 +38,15 @@ export class FormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (!this.isCreate) {
-      this.formGroup.addControl('id', this.formBuilder.control('', [Validators.required]));
-    }
 
     this.setIsMode();
 
     if (!this.isCreate) {
+      this.formGroup.addControl(this.idFormControlName, this.formBuilder.control('', [Validators.required]));
       this.fillFormGroup();
     }
+
+    console.log(this.formGroup.value);
   }
 
   private setIsMode(): void {
@@ -58,7 +59,8 @@ export class FormComponent implements OnInit {
   private fillFormGroup() {
     const paramID = this.route.snapshot.params.id;
     this.service.read(paramID).subscribe((response) => {
-      this.formGroup.patchValue(response);
+      console.log(response);
+      this.formGroup.patchValue(response.data);
     });
   }
 
@@ -66,29 +68,35 @@ export class FormComponent implements OnInit {
 
     if (this.isCreate) {
       this.service.create(this.formGroup.value).subscribe((response) => {
+        console.log(response);
         this.router.navigate(['..'], { relativeTo: this.route });
       }, (response) => {
-        this.snackBar.open(response.error.message, '', {
+        console.log(response);
+        this.snackBar.open(response.error.error, '', {
           duration: 2000,
         });
       });
     }
 
     if (this.isUpdate) {
-      this.service.update(this.formGroup.value).subscribe(() => {
+      this.service.update(this.formGroup.get(this.idFormControlName).value, this.formGroup.value).subscribe((response) => {
+        console.log(response);
         this.router.navigate(['../..'], { relativeTo: this.route });
       }, (response) => {
-        this.snackBar.open(response.error.message, '', {
+        console.log(response);
+        this.snackBar.open(response.error.error, '', {
           duration: 2000,
         });
       });
     }
 
     if (this.isDelete) {
-      this.service.delete(this.formGroup.value.id).subscribe(() => {
+      this.service.delete(this.formGroup.value.id).subscribe((response) => {
+        console.log(response);
         this.router.navigate(['../..'], { relativeTo: this.route });
       }, (response) => {
-        this.snackBar.open(response.error.message, '', {
+        console.log(response);
+        this.snackBar.open(response.error.error, '', {
           duration: 2000,
         });
       });

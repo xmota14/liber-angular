@@ -25,20 +25,20 @@ export class FormComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       title: this.formBuilder.control('', [Validators.required]),
       author: this.formBuilder.control('', [Validators.required, Validators.max(35), Validators.pattern(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/)]),
-      barcode: this.formBuilder.control('', [Validators.required]),
+      barCode: this.formBuilder.control('', [Validators.required]),
       volume: this.formBuilder.control('', [Validators.required]),
       edition: this.formBuilder.control('', [Validators.required]),
-      publisher: this.formBuilder.control('', [Validators.required]),
+      publishedBy: this.formBuilder.control('', [Validators.required]),
       description: this.formBuilder.control('', [Validators.required]),
     });
 
     this.inputDescriptions = [
       new InputDescription('title', 'Título', 'text', 'delete'),
       new InputDescription('author', 'Autor', 'text', 'delete'),
-      new InputDescription('barcode', 'Código de Barras', 'text', 'delete'),
+      new InputDescription('barCode', 'Código de Barras', 'number', 'delete'),
       new InputDescription('volume', 'Volume', 'number', 'delete'),
       new InputDescription('edition', 'Edição', 'number', 'delete'),
-      new InputDescription('publisher', 'Editora', 'text', 'delete'),
+      new InputDescription('publishedBy', 'Editora', 'text', 'delete'),
       new InputDescription('description', 'Descrição', 'text', 'delete'),
     ];
   }

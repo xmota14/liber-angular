@@ -1,0 +1,80 @@
+<div class="liber-form-container">
+  <mat-card class="liber-form-card">
+    <mat-card-header class="liber-form-card-header">
+      <mat-card-title class="liber-form-card-title">{{this.title}}</mat-card-title>
+      <mat-card-subtitle class="liber-form-card-subtitle">{{this.subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="liber-form" [formGroup]="this.formGroup" (ngSubmit)="onSubmit()">
+
+        <input *ngIf="!this.isCreate" [formControlName]="this.idFormControlName" type="hidden">
+
+        <mat-form-field *ngIf="!!this.users" appearance="outline">
+          <mat-label>Usuário</mat-label>
+          <mat-select formControlName="user">
+            <mat-option *ngFor="let user of this.users" [value]="user._id">
+              {{user.name}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>delete</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!!this.persons" appearance="outline">
+          <mat-label>Pessoa</mat-label>
+          <mat-select formControlName="person">
+            <mat-option *ngFor="let person of this.persons" [value]="person._id">
+              {{person.name}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>delete</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!!this.persons" appearance="outline">
+          <mat-label>Livro</mat-label>
+          <mat-select formControlName="book">
+            <mat-option *ngFor="let book of this.books" [value]="book.barCode">
+              {{book.title}} | {{book.author}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix>delete</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Data</mat-label>
+          <input matInput [matDatepicker]="loanDate" formControlName="loanDate">
+          <mat-datepicker-toggle matSuffix [for]="loanDate"></mat-datepicker-toggle>
+          <mat-datepicker #loanDate></mat-datepicker>
+        </mat-form-field>
+
+        <div class="liber-form-buttons">
+
+          <button *ngIf="this.isCreate" mat-raised-button class="liber-form-button liber-button-success" type="submit"
+            [disabled]="formGroup.invalid">
+            <mat-icon>create</mat-icon>Adicionar
+          </button>
+          <button *ngIf="this.isUpdate" mat-raised-button class="liber-form-button liber-button-primary" type="submit"
+            [disabled]="formGroup.invalid">
+            <mat-icon>edit</mat-icon>Atualizar
+          </button>
+          <button *ngIf="this.isDelete" mat-raised-button class="liber-form-button liber-button-danger" type="submit">
+            <mat-icon>delete</mat-icon>Remover
+          </button>
+
+          <a *ngIf="this.isCreate" mat-raised-button class="liber-form-button liber-button-danger" routerLink="..">
+            <mat-icon>close</mat-icon>Cancelar
+          </a>
+          <a *ngIf="this.isUpdate" mat-raised-button class="liber-form-button liber-button-danger" routerLink="../..">
+            <mat-icon>close</mat-icon>Cancelar
+          </a>
+          <a *ngIf="this.isDelete" mat-raised-button class="liber-form-button liber-button-primary" routerLink="../..">
+            <mat-icon>close</mat-icon>Cancelar
+          </a>
+          <a *ngIf="this.isRead" mat-raised-button class="liber-form-button liber-button-primary" routerLink="../..">
+            <mat-icon>undo</mat-icon>Voltar
+          </a>
+
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,38 @@
+@import '../../styles/liber-buttons';
+
+.liber-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.liber-form-card {
+  width: 500px;
+}
+
+.liber-form-card-header {
+  justify-content: center;
+}
+
+.liber-form-card-title,
+.liber-form-card-subtitle {
+  text-align: center;
+}
+
+.liber-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.liber-form-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.liber-form-button {
+  width: 130px;
+  margin-left: 10px;
+}
