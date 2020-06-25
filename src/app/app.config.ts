@@ -1,1 +1,1 @@
-export const LIBER_BACKEND = 'http://localhost:4200/api/v1';
+export const LIBER_BACKEND = 'https://liber.x14.webredirect.org/api/v1';
