@@ -1,56 +1,38 @@
-@import '../../../styles/liber-buttons';
+@import '../../styles/liber-buttons';
 
-.liber-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1525358180237-7399f908a1d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1514&q=80");
-  background-size: cover;
-}
-
-.liber-boas-vindas {
-  background-color: white;
-  margin: 0 auto;
-}
-
-.liber-user-create-form {
-  padding-bottom: 30%;
-}
-
-.liber-mensagem {
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
-
-.liber-card {
-  padding: 30px;
-  max-width: 300px;
-  min-height: 500px;
+.liber-form-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-self: center;
-}
-
-.liber-input {
-  width: 100%;
-}
-
-.liber-text-center {
+  justify-content: center;
   align-items: center;
+}
+
+.liber-form-card {
+  width: 500px;
+}
+
+.liber-form-card-header {
+  justify-content: center;
+}
+
+.liber-form-card-title,
+.liber-form-card-subtitle {
   text-align: center;
 }
 
-.copyright {
-  margin: 0;
-  bottom: 0;
-  position: absolute;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%) 
+.liber-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.liber-form-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.liber-form-button {
+  width: 130px;
+  margin-left: 10px;
 }
