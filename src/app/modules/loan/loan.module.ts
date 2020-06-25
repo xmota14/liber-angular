@@ -30,11 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { PeopleService } from 'src/app/services/people/people.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ListOverdueComponent } from './list-overdue/list-overdue.component';
+import { ReportsService } from 'src/app/services/reports/reports.service';
 
 
 
 @NgModule({
-  declarations: [LoanComponent, CreateComponent, ReadComponent, UpdateComponent, DeleteComponent, ListComponent, FormComponent],
+  declarations: [LoanComponent, CreateComponent, ReadComponent, UpdateComponent, DeleteComponent, ListComponent, FormComponent, ListOverdueComponent],
   imports: [
     CommonModule,
     LoanRoutingModule,
@@ -61,6 +63,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     UserService,
     BookService,
     PeopleService,
+    ReportsService,
     MatDatepickerModule
   ]
 })

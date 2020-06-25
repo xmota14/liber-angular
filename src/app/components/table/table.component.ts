@@ -15,6 +15,7 @@ export class TableComponent implements OnInit {
   @Input() public service: ApiService;
   @Input() public tableColumnDescriptions: TableColumnDescription[];
   @Input() public idFormControlName: string;
+  @Input() public reportName: string;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -30,8 +31,22 @@ export class TableComponent implements OnInit {
 
     this.service.list().subscribe((response) => {
       console.log(response);
-      // @ts-ignore
-      this.dataSource.data = response.data;
+      if (this.reportName == null) {
+        this.dataSource.data = response['data'];
+      } else {
+        console.log(this.reportName);
+        this.dataSource.data = response['data'][this.reportName];
+      }
+
+      this.tableColumnDescriptions.forEach((tableColumnDescription) => {
+        if (tableColumnDescription.service != null) {
+          for (let i = 0; i < this.dataSource.data.length; i++) {
+            tableColumnDescription.service.read(this.dataSource.data[i][tableColumnDescription.name]).subscribe((reponse) => {
+              this.dataSource.data[i][tableColumnDescription.name] = reponse['data'][tableColumnDescription.serviceAttributeName]
+            });
+          }
+        }
+      });
     });
   }
 
@@ -52,7 +67,9 @@ export class TableColumnDescription {
 
   constructor(
     public name: string,
-    public label: string
+    public label: string,
+    public service?: ApiService,
+    public serviceAttributeName?: string,
   ) {
 
   }

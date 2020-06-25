@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private api: string;
-
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -17,11 +15,15 @@ export class AuthService {
   constructor(
     private httpClient: HttpClient,
   ) {
-    this.api = `${LIBER_BACKEND}/auth/login`;
+
   }
 
   public login(model: any): Observable<any> {
-    return this.httpClient.post<any>(this.api, JSON.stringify(model), this.httpOptions);
+    return this.httpClient.post<any>(`${LIBER_BACKEND}/auth/login`, JSON.stringify(model), this.httpOptions);
+  }
+
+  public logout(): Observable<any> {
+    return this.httpClient.get<any>(`${LIBER_BACKEND}/auth/logout`, this.httpOptions);
   }
 
 }

@@ -6,6 +6,7 @@ import { OtherItemsModule } from './other-items/other-items.module';
 import { UserModule } from './user/user.module';
 import { PeopleModule } from './people/people.module';
 import { LoanModule } from './loan/loan.module';
+import { ReportsModule } from './reports/reports.module';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'loan',
         loadChildren: () => LoanModule
+      },
+      {
+        path: 'reports',
+        loadChildren: () => ReportsModule
       },
       { path: '', redirectTo: 'book', pathMatch: 'full' },
       { path: '**', redirectTo: 'book' },

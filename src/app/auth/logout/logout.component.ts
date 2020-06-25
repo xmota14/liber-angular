@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'liber-logout',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private service: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.service.logout().subscribe((reponse) => {
+      this.router.navigate(['..'], { relativeTo: this.route });
+    });
   }
-
 }

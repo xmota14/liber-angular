@@ -6,6 +6,7 @@ import { ReadComponent } from './read/read.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { ListComponent } from './list/list.component';
+import { ListOverdueComponent } from './list-overdue/list-overdue.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'update/:id', component: UpdateComponent },
       { path: 'delete/:id', component: DeleteComponent },
       { path: 'list', component: ListComponent },
+      { path: 'list-overdue', component: ListOverdueComponent },
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: '**', redirectTo: 'list' },
     ],

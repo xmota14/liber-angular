@@ -24,12 +24,16 @@
       <mat-menu #people="matMenu">
           <button mat-menu-item routerLink="people/create">Adicionar</button>
           <button mat-menu-item routerLink="people/list">Listar</button>
+          <button mat-menu-item routerLink="people/list-overdue">Listar em Atraso</button>
       </mat-menu>
       <button mat-button [matMenuTriggerFor]="loan">Empréstimos</button>
       <mat-menu #loan="matMenu">
           <button mat-menu-item routerLink="loan/create">Adicionar</button>
           <button mat-menu-item routerLink="loan/list">Listar</button>
+          <button mat-menu-item routerLink="loan/list-overdue">Listar em Atraso</button>
       </mat-menu>
+      <button mat-button routerLink="../auth/login">Entrar</button>
+      <button mat-button routerLink="../auth/logout">Sair</button>
   </div>
 </div>
 

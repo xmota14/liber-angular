@@ -11,11 +11,13 @@ import { PeopleRoutingModule } from './people-routing.module';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { ServicesModule } from 'src/app/services/services.module';
 import { PeopleService } from 'src/app/services/people/people.service';
+import { ListOverdueComponent } from './list-overdue/list-overdue.component';
+import { ReportsService } from 'src/app/services/reports/reports.service';
 
 
 
 @NgModule({
-  declarations: [PeopleComponent, CreateComponent, UpdateComponent, ReadComponent, DeleteComponent, ListComponent, FormComponent],
+  declarations: [PeopleComponent, CreateComponent, UpdateComponent, ReadComponent, DeleteComponent, ListComponent, FormComponent, ListOverdueComponent],
   imports: [
     CommonModule,
     PeopleRoutingModule,
@@ -23,7 +25,8 @@ import { PeopleService } from 'src/app/services/people/people.service';
     ServicesModule
   ],
   providers: [
-    PeopleService
+    PeopleService,
+    ReportsService
   ]
 })
 export class PeopleModule { }

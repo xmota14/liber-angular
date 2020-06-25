@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
       phone: this.formBuilder.control('', [Validators.required]),
       class: this.formBuilder.control('', [Validators.required]),
       email: this.formBuilder.control('', [Validators.required, Validators.email]),
-      cpf: this.formBuilder.control('', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)]),
+      cpf: this.formBuilder.control('', [Validators.required]),
     });
 
     this.inputDescriptions = [
