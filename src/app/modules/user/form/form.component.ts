@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       name: this.formBuilder.control('', [Validators.required]),
-      cpf: this.formBuilder.control('', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)]),
+      cpf: this.formBuilder.control('', [Validators.required, Validators.pattern(/\d{11}/)]),
       phone: this.formBuilder.control('', [Validators.required]),
       email: this.formBuilder.control('', [Validators.required, Validators.email]),
       password: this.formBuilder.control('', [Validators.required]),
@@ -32,7 +32,7 @@ export class FormComponent implements OnInit {
 
     this.inputDescriptions = [
       new InputDescription('name', 'Nome', 'text', 'delete'),
-      new InputDescription('cpf', 'CPF', 'text', 'delete'),
+      new InputDescription('cpf', 'CPF (somente números)', 'text', 'delete'),
       new InputDescription('phone', 'Telefone', 'number', 'delete'),
       new InputDescription('email', 'E-mail', 'email', 'delete'),
       new InputDescription('password', 'Senha', 'password', 'delete')

@@ -15,7 +15,7 @@ import { BookService } from 'src/app/services/book/book.service';
 })
 export class FormComponent implements OnInit {
 
-  public title = 'Cadostro de Empréstimos';
+  public title = 'Cadastro de Empréstimos';
   @Input() public subtitle: string;
   @Input() public mode: string;
 
