@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       name: this.formBuilder.control('', [Validators.required]),
-      cpf: this.formBuilder.control('', [Validators.required, Validators.pattern(/\d{11}/)]),
+      cpf: this.formBuilder.control('', [Validators.required, Validators.maxLength(11), Validators.pattern(/\d{11}/)]),
       phone: this.formBuilder.control('', [Validators.required]),
       email: this.formBuilder.control('', [Validators.required, Validators.email]),
       password: this.formBuilder.control('', [Validators.required]),
