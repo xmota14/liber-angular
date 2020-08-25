@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LIBER_BACKEND } from 'src/app/app.config';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export abstract class ApiService {
   constructor(
     private httpClient: HttpClient,
   ) {
-    this.api = `${LIBER_BACKEND}${this.getApiPath()}`;
+    this.api = `${environment.backendUri}${this.getApiPath()}`;
   }
 
   public list(): Observable<any[]> {
