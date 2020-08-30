@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUri: 'https://staging.liber.thiagomota.dev/api/v1'
+  backendUri: 'https://liber-staging.thiagomota.app/api/v1'
 };
