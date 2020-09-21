@@ -1,6 +1,0 @@
-{
-  "/api": {
-    "target": "https://liber-development.thiagomota.app",
-    "secure": false
-  }
-}

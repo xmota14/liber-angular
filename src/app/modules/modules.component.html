@@ -30,7 +30,11 @@
       <mat-menu #loan="matMenu">
           <button mat-menu-item routerLink="loan/create">Adicionar</button>
           <button mat-menu-item routerLink="loan/list">Listar</button>
-          <button mat-menu-item routerLink="loan/list-overdue">Listar em Atraso</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="reports">Relatórios</button>
+      <mat-menu #reports="matMenu">
+          <button mat-menu-item routerLink="loan/list-overdue">Empréstimos Atrasados</button>
+          <button mat-menu-item routerLink="people/list-overdue">Pessoas com Empréstimos Atrasados</button>
       </mat-menu>
       <button mat-button routerLink="../auth/login">Entrar</button>
       <button mat-button routerLink="../auth/logout">Sair</button>

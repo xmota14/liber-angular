@@ -91,7 +91,7 @@ export class FormComponent implements OnInit {
     }
 
     if (this.isDelete) {
-      this.service.delete(this.formGroup.value.id).subscribe((response) => {
+      this.service.delete(this.formGroup.get(this.idFormControlName).value).subscribe((response) => {
         console.log(response);
         this.router.navigate(['../..'], { relativeTo: this.route });
       }, (response) => {

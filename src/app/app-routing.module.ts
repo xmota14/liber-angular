@@ -18,8 +18,8 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => AuthModule
       },
-      { path: '', redirectTo: 'modules', pathMatch: 'full' },
-      { path: '**', redirectTo: 'modules' },
+      { path: '', redirectTo: 'auth', pathMatch: 'full' },
+      { path: '**', redirectTo: 'auth' },
     ]
   }
 ];

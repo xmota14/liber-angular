@@ -16,6 +16,7 @@ export class TableComponent implements OnInit {
   @Input() public tableColumnDescriptions: TableColumnDescription[];
   @Input() public idFormControlName: string;
   @Input() public reportName: string;
+  @Input() public enableFilter: boolean;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -61,7 +62,13 @@ export class TableComponent implements OnInit {
     this.displayedColumns[this.tableColumnDescriptions.length] = 'actions';
   }
 
+  public doFilter = (value: string) => {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
 }
+
+
 
 export class TableColumnDescription {
 

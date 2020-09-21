@@ -11,7 +11,10 @@ export abstract class ApiService {
   private api: string;
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 
+      'content-type': 'application/json',
+      authorization: localStorage.getItem('token')
+    })
   };
 
   constructor(
@@ -36,7 +39,7 @@ export abstract class ApiService {
     return this.httpClient.put<any>(`${this.api}/${id}`, JSON.stringify(model), this.httpOptions)
   }
 
-  public delete(id: number): Observable<any> {
+  public delete(id: any): Observable<any> {
     return this.httpClient.delete<any>(`${this.api}/${id}`, this.httpOptions)
   }
 

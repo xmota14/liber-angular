@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   public onSubmit() {
     this.service.login(this.formGroup.value).subscribe((response) => {
+      localStorage.setItem('token', 'Bearer ' + response.token);
       this.router.navigate(['/modules'], { relativeTo: this.route });
     }, (response) => {
       this.snackBar.open(response.error.message, '', {
